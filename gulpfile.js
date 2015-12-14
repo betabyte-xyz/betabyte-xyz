@@ -35,6 +35,12 @@ gulp.task('assets', function () {
     .pipe(gulp.dest('public/assets'))
 });
 
+gulp.task('cname', function () {
+  return gulp
+    .src('CNAME')
+    .pipe(gulp.dest('public'))
+});
+
 gulp.task('semantic', function () {
   return gulp
     .src('semantic/dist/**/*')
@@ -45,4 +51,4 @@ gulp.task('clean', function () {
   return del('public/**/*')
 });
 
-gulp.task('build', ['assets', 'semantic', 'html']);
+gulp.task('build', ['assets', 'semantic', 'html', 'cname']);
